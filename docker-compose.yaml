@@ -1,21 +1,26 @@
-version: "latest"
 services:
   nginx:
     container_name: nginx
-    build: 
+    build:
       context: ./nginx
       dockerfile: ./Dockerfile
     ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - '80:80'
   backend-1:
     container_name: backend-1
     build:
       context: ./backend-1
       dockerfile: ./Dockerfile
+    env_file:
+      - ./backend-1/.env
+    ports:
+      - '4000:4000'
   backend-2:
     container_name: backend-2
     build:
       context: ./backend-2
       dockerfile: ./Dockerfile
+    env_file:
+      - ./backend-2/.env
+    ports:
+      - '3000:3000'

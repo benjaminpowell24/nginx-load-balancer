@@ -3,3 +3,6 @@
 
 /backend-2/node_modules
 /backend-2/package-lock.json
+
+.DS_Store
+.env

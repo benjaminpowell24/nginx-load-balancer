@@ -1,6 +1,6 @@
-FROM nginx:latest
+FROM nginx
 
-COPY ./nginx.conf /etc/nginx/nginx.conf
-COPY ./upstreams.conf /etc/nginx/conf.d/upstreams.conf
+RUN rm /etc/nginx/conf.d/default.conf
+COPY ./server.conf /etc/nginx/conf.d/server.conf
 
 EXPOSE 80
